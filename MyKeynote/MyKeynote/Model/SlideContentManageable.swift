@@ -6,3 +6,8 @@
 //
 
 import Foundation
+protocol SlideContentManageable {
+    var elements: [SlideElement] { get }
+    func addElement(_ element: SlideElement)
+    func removeElement(_ element: SlideElement)
+}
