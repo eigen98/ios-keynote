@@ -6,3 +6,7 @@
 //
 
 import Foundation
+protocol Slide: SlideContentManageable, SlideDisplayable {
+    var backgroundColor: SlideRGBColor { get set }
+    var alpha: AlphaLevel { get set }
+}
