@@ -8,4 +8,5 @@
 import Foundation
 protocol SlideDisplayable{
     func display()
+    func prepareForDisplay()
 }
