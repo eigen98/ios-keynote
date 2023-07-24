@@ -6,3 +6,8 @@
 //
 
 import Foundation
+protocol SlideDataSource {
+    func getSlideCount() -> Int
+    func slide(at index: Int) -> SlideProtocol?
+    func selectedSlide() -> SlideProtocol?
+}
