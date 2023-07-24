@@ -6,17 +6,23 @@
 //
 
 import Foundation
-class BaseElement: SlideElement, Selectable {
-    
-    
-    private let id: String
-    var position: CGPoint
+class BaseElement: SlideElementProtocol {
+   
+    //SlideElementProtocol
+    let id: String
     var size: CGSize
     var backgroundColor: SlideRGBColor
     var animation: AnimationApplicable?
     var alpha: AlphaLevel
+    
+    //Selectable
     var isSelected: Bool = false
+    
+    //Draggable
+    var position: CGPoint
 
+    //Order
+    var orderIndex: Int = 0
     
     required init(id : String, position: CGPoint, size: CGSize) {
         self.id = id
@@ -34,14 +40,20 @@ class BaseElement: SlideElement, Selectable {
         backgroundColor =  .init(red: 222, green: 222, blue: 222)
         alpha = .level1
     }
-
-    func display() {
+    
+    //Draggable
+    func startDrag(at point: CGPoint) {
         
-        if isSelected {
-            
-        }
     }
-
+    
+    func drag(to point: CGPoint) {
+        
+    }
+    
+    func endDrag(at point: CGPoint) {
+        
+    }
+    //Selectable
     func select() {
         isSelected = true
     }
@@ -49,4 +61,23 @@ class BaseElement: SlideElement, Selectable {
     func deselect() {
         isSelected = false
     }
+    
+    //Resizable
+    func resize(to newSize: CGSize) {
+        
+    }
+    
+    
+    //Order
+    func moveForward() {
+        
+    }
+    
+    func moveBackward() {
+    
+    }
+    
+   
+
+    
 }
