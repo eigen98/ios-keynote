@@ -7,13 +7,13 @@
 
 import Foundation
 
-class SquareSlide : Slide{
+class BaseSlide : SlideContentManageable, SlideDisplayable{
     
     private let id: String
     var length: Int
     var backgroundColor: SlideRGBColor
     var alpha: AlphaLevel = .level1
-    private(set) var elements: [SlideElement] = []
+    private(set) var elements: [SlideElementProtocol] = []
     
     init(id: String, length: Int, backgroundColor: SlideRGBColor) {
         self.id = id
@@ -25,11 +25,11 @@ class SquareSlide : Slide{
         
     }
     
-    func addElement(_ element: SlideElement) {
+    func addElement(_ element: SlideElementProtocol) {
         self.elements.append(element)
     }
     
-    func removeElement(_ element: SlideElement) {
+    func removeElement(_ element: SlideElementProtocol) {
         
     }
     
@@ -40,7 +40,7 @@ class SquareSlide : Slide{
     
 }
 
-extension SquareSlide : CustomStringConvertible{
+extension BaseSlide : CustomStringConvertible{
     var description: String {
         return "(\(id)), Side:\(length), R:\(backgroundColor.red), G:\(backgroundColor.green), B:\(backgroundColor.blue), Alpha: \(alpha.rawValue)"
     }

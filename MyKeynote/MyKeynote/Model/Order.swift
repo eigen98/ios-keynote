@@ -6,7 +6,7 @@
 //SlideDisplayable
 
 import Foundation
-protocol SlideDisplayable{
+protocol Order{
     func display()
     func prepareForDisplay()
 }
