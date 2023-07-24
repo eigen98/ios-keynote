@@ -8,36 +8,37 @@
 import Foundation
 
 protocol SlideFactoryProtocol{
-    func createSlide(length: Int, backgroundColor: SlideRGBColor) -> SquareSlide
-    func createRandomSlide() -> SquareSlide
+    var generator: RandomNumberGenerator { get }
+    var idGenerator: IDGenerator { get }
+    func createSlide(length: Int, backgroundColor: SlideRGBColor) -> BaseSlide
+    func createRandomSlide() -> BaseSlide
 }
 
 class SlideFactory : SlideFactoryProtocol{
     
     
-    private var generator: RandomNumberGenerator
-    private var idGenerator: IDGenerator
+    var generator: RandomNumberGenerator
+    let idGenerator: IDGenerator
     
     init(generator: RandomNumberGenerator = SystemRandomNumberGenerator()) {
         self.generator = generator
         self.idGenerator = IDGenerator()
     }
-    func createSlide(length: Int, backgroundColor: SlideRGBColor) -> SquareSlide {
+    func createSlide(length: Int, backgroundColor: SlideRGBColor) -> BaseSlide {
          let id = idGenerator.generateID(using: &generator)
 
-         return SquareSlide(id: id, length: length, backgroundColor: backgroundColor)
+         return BaseSlide(id: id, backgroundColor: backgroundColor)
      }
     
-    func createRandomSlide() -> SquareSlide {
+    func createRandomSlide() -> BaseSlide {
         let id = idGenerator.generateID(using: &generator)
-        let length = Int.random(in: 1...100, using: &generator)
         let color = SlideRGBColor(
             red: Int.random(in: 0...255, using: &generator),
             green: Int.random(in: 0...255, using: &generator),
             blue: Int.random(in: 0...255, using: &generator)
         )
         
-        return SquareSlide(id: id, length: length, backgroundColor: color)
+        return BaseSlide(id: id, backgroundColor: color)
     }
     
 }
