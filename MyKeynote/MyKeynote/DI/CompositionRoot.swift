@@ -12,7 +12,7 @@ enum CompositionRoot{
     }
     
     private static var slideManager : SlideManager{
-        SlideManager(componentFactory: componentFactory as! SlideComponentFactory, slideFactory: slideFactory as! SlideFactory , slideCollection: slideCollection)
+        SlideManager(componentFactory: componentFactory, slideFactory: slideFactory , slideCollection: slideCollection)
     }
     
     private static var componentFactory : SlideComponentFactoryProtocol{
