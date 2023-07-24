@@ -6,3 +6,9 @@
 //
 
 import Foundation
+
+protocol Selectable{
+    var isSelected: Bool { get set }
+    func select()
+    func deselect()
+}
