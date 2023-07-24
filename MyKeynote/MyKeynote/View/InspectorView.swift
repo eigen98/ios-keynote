@@ -7,56 +7,100 @@
 
 import Foundation
 import UIKit
+//우측 인스펙터 뷰
 class InspectorView : UIView{
-    //배경색, 투명도 설정
-    
     
     private var backgroundTitleLabel : UILabel?
     private var colorPickerButton : UIButton?
     private var opacityTitleLabel : UILabel?
     private var opacityNumberLabel : UILabel?
-    private var opacityPlusButton : UIButton?
-    private var opacityMinusButton : UIButton?
+    private var opacityButton : CustomStepperButton?
+    
+    var selectedComponent: RectangleComponentView? {
+        didSet {
+            updateInspector()
+        }
+    }
+    
     
     required init?(coder: NSCoder) {
         super.init(coder: coder)
         
+        attribute()
+        configure()
         
-       
     }
     
     override init(frame: CGRect) {
         super.init(frame: frame)
+        
+        attribute()
+        configure()
     }
     
+    override func layoutSubviews() {
+        
+        attribute()
+        configure()
+    }
+    
+    
+    func updateInspector() {
+        guard let component = selectedComponent else {
+            colorPickerButton?.backgroundColor = .white
+            opacityNumberLabel?.text = ""
+            colorPickerButton?.setTitle("", for: .normal)
+            return
+        }
+        
+        colorPickerButton?.backgroundColor = component.color
+        opacityNumberLabel?.text = String(format: "%.1f", component.alpha)
+        colorPickerButton?.setTitle(component.backgroundColor?.rgbHex, for: .normal)
+    }
     
     func layout(){
         
         backgroundTitleLabel = UILabel()
         colorPickerButton = UIButton()
         opacityTitleLabel = UILabel()
-        opacityPlusButton = UIButton()
         opacityNumberLabel = UILabel()
-        opacityPlusButton = UIButton()
-        opacityMinusButton = UIButton()
         
-        [backgroundTitleLabel,
-         colorPickerButton,
-         opacityTitleLabel,
-         opacityNumberLabel,
-         opacityPlusButton,
-         opacityMinusButton].forEach{
-            if let view = $0{
-                self.addSubview(view)
-            }
+        guard let backgroundTitleLabel = backgroundTitleLabel,
+              let colorPickerButton = colorPickerButton,
+              let opacityTitleLabel = opacityTitleLabel,
+              let opacityNumberLabel = opacityNumberLabel else {
+            return
         }
         
-        backgroundTitleLabel?.frame = .init(x: self.bounds.minX, y: self.bounds.minY, width: 80, height: 30)
         
-        colorPickerButton?.frame = .init(x: self.bounds.minX + 10, y: self.bounds.minY + 10, width: self.bounds.width - 20, height: 30)
+        [backgroundTitleLabel, colorPickerButton, opacityTitleLabel, opacityNumberLabel].forEach {
+            self.addSubview($0)
+        }
         
-        guard let colorPickerButton = colorPickerButton else { return }
-        opacityNumberLabel?.frame = .init(x: self.bounds.minX, y: colorPickerButton.bounds.minX + 10, width: self.bounds.width - 20, height: 30)
+        backgroundTitleLabel.frame = .init(x: self.bounds.origin.x + 10,
+                                           y: self.bounds.origin.y + 10,
+                                           width: 80,
+                                           height: 30)
+        
+        colorPickerButton.frame = .init(x: self.bounds.origin.x + 10,
+                                        y: backgroundTitleLabel.frame.maxY + 20,
+                                        width: 160,
+                                        height: 30)
+        
+        opacityTitleLabel.frame = .init(x: self.bounds.origin.x + 10,
+                                        y: colorPickerButton.frame.maxY + 20,
+                                        width:  80,
+                                        height: 30)
+        
+        opacityNumberLabel.frame = .init(x: self.bounds.origin.x  + 10,
+                                         y: opacityTitleLabel.frame.maxY + 20,
+                                         width: 50,
+                                         height: 30)
+        opacityButton = CustomStepperButton(frame: .init(x: opacityNumberLabel.frame.maxX  + 10,
+                                                         y: opacityTitleLabel.frame.maxY + 20,
+                                                         width: 100,
+                                                         height: 30))
+        addSubview(opacityButton!)
         
         
         
@@ -64,11 +108,67 @@ class InspectorView : UIView{
     
     func attribute(){
         backgroundTitleLabel?.text = "배경색"
+        colorPickerButton?.setTitleColor(.black, for: .normal)
         colorPickerButton?.backgroundColor = .yellow
+        colorPickerButton?.layer.cornerRadius = 8
+        
         opacityTitleLabel?.text = "투명도"
-        opacityNumberLabel?.text = "0"
+        opacityNumberLabel?.text = ""
+        opacityNumberLabel?.backgroundColor = .white
+        opacityNumberLabel?.textAlignment = .right
+        
         
         
     }
     
+    func configure(){
+        
+        colorPickerButton?.addTarget(self, action: #selector(colorPickerButtonTapped), for: .touchUpInside)
+        
+        opacityButton?.valueChanged = { [weak self] value in
+            guard let level = AlphaLevel(rawValue: Float(value)),
+                  let _ =  self?.selectedComponent else {
+                return
+            }
+            
+            self?.opacityNumberLabel?.text = "\(level.rawValue)"
+            self?.selectedComponent?.alpha = CGFloat(level.rawValue)
+            self?.selectedComponent?.setNeedsDisplay()
+            
+        }
+    }
+    
+    @objc private func colorPickerButtonTapped() {
+        guard let component = selectedComponent else {
+            return
+        }
+        
+        let colorPickerController = UIColorPickerViewController()
+        colorPickerController.selectedColor = component.color
+        colorPickerController.delegate = self
+        
+        guard let windowScene = UIApplication.shared.connectedScenes.first as? UIWindowScene,
+              let rootViewController = windowScene.windows.first?.rootViewController else {
+            return
+        }
+        
+        rootViewController.present(colorPickerController, animated: true, completion: nil)
+    }
+    
+    
+}
+
+extension InspectorView: UIColorPickerViewControllerDelegate {
+    func colorPickerViewControllerDidSelectColor(_ viewController: UIColorPickerViewController) {
+        guard let component = selectedComponent else {
+            return
+        }
+        
+        let selectedColor = viewController.selectedColor
+        component.backgroundColor = selectedColor
+        colorPickerButton?.backgroundColor = selectedColor
+        colorPickerButton?.setTitle(selectedColor.rgbHex, for: .normal)
+        //보색 적용해야하는 부분
+        colorPickerButton?.setTitleColor(.black, for: .normal)
+    }
 }
