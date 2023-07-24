@@ -7,28 +7,13 @@
 
 import Foundation
 import UIKit
-class RectangleComponentView: UIView {
-    private var rectangleElement: RectangleElement?
+class RectangleComponentView: BaseComponentView {
 
-    func configure(with rectangleElement: RectangleElement) {
-        self.rectangleElement = rectangleElement
-        self.frame.size = rectangleElement.size
-        self.center = rectangleElement.position
-        updateBorder()
+    
+    private var cornerRadius: CGFloat = 0 {
+        didSet {
+            self.layer.cornerRadius = cornerRadius
+        }
     }
-
-    func select() {
-        rectangleElement?.select()
-        updateBorder()
-    }
-
-    func deselect() {
-        rectangleElement?.deselect()
-        updateBorder()
-    }
-
-    private func updateBorder() {
-        layer.borderWidth = rectangleElement?.isSelected == true ? 3.0 : 1.0
-        
-    }
+    
 }
