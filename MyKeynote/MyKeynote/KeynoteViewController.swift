@@ -1,5 +1,5 @@
 //
-//  ViewController.swift
+//  KeynoteViewController.swift
 //  MyKeynote
 //
 //  Created by KoJeongMin  on 2023/07/17.
@@ -10,15 +10,31 @@ import UIKit
 class KeynoteViewController: UIViewController {
 
     private var keynoteView : KeynoteView?
-    private var slideManager = SlideManager()
+    var slideManager = SlideManager(componentFactory: SlideComponentFactory(),
+                                    slideFactory: SlideFactory(),
+                                    slideCollection: SlideCollection())
+    
+    
+    
+    init(slideManager: SlideManager) {
+        self.slideManager = slideManager
+        super.init(nibName: nil, bundle: nil)
+    }
+    
+    required init?(coder: NSCoder) {
+        super.init(coder: coder)
+        slideManager = SlideManager(componentFactory: SlideComponentFactory(),
+                                        slideFactory: SlideFactory(),
+                                        slideCollection: SlideCollection())
+        
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         layout()
-        slideManager.delegate = keynoteView
-        keynoteView?.slideDataSource = slideManager
+        keynoteView?.slideDataSource = self
         attribute()
-        update()
+        loadInitialKeynoteState()
         
     }
     
@@ -41,16 +57,24 @@ class KeynoteViewController: UIViewController {
         
     }
     
-    func update(){
-        
-        
+    func loadInitialKeynoteState(){
         slideManager.addSlide()
-        slideManager.addCompnent()
-        keynoteView?.slideDataSource = slideManager
-        keynoteView?.update()
-       
+        slideManager.addElement(length: 200, backgroundColor: .init(red: 200, green: 200, blue: 200), type: RectangleElement.self)
+        keynoteView?.reloadSlide()
     }
-
-
 }
 
+extension KeynoteViewController : SlideDataSource{
+    func slide(at index: Int) -> SlideProtocol? {
+        return slideManager.slideCollection[index]
+    }
+    
+    func selectedSlide() -> SlideProtocol? {
+        return slideManager.selectedSlide
+    }
+    
+    func getSlideCount() -> Int {
+        return slideManager.slideCount
+    }
+    
+}
