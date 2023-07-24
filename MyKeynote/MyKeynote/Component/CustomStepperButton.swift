@@ -14,7 +14,7 @@ class CustomStepperButton : UIView{
         let button = UIButton(type: .system)
         button.setTitle("-", for: .normal)
         button.tintColor = .black
-        button.addTarget(self, action: #selector(minusTapped), for: .touchUpInside)
+       
         return button
     }()
     
@@ -22,7 +22,7 @@ class CustomStepperButton : UIView{
         let button = UIButton(type: .system)
         button.setTitle("+", for: .normal)
         button.tintColor = .black
-        button.addTarget(self, action: #selector(plusTapped), for: .touchUpInside)
+       
         return button
     }()
     
@@ -32,9 +32,9 @@ class CustomStepperButton : UIView{
             return view
         }()
     
-    var valueChanged: ((Int) -> Void)?
+    var valueChanged: ((Double) -> Void)?
     
-    var value = 1{
+    var value = 1.0{
         didSet {
             valueChanged?(value)
         }
@@ -54,7 +54,9 @@ class CustomStepperButton : UIView{
     
     func layout(){
         addSubview(minusButton)
+        minusButton.addTarget(self, action: #selector(minusTapped), for: .touchUpInside)
         addSubview(plusButton)
+        plusButton.addTarget(self, action: #selector(plusTapped), for: .touchUpInside)
         addSubview(separator)
         let buttonWidth: CGFloat = frame.width / 2
         let buttonHeight: CGFloat = frame.height
@@ -72,14 +74,14 @@ class CustomStepperButton : UIView{
     }
     
     @objc private func minusTapped() {
-        if value > 1 { 
-                value -= 1
+        if value > 0.0 {
+            value -= 0.1
             }
     }
     
     @objc private func plusTapped() {
-        if value < 10 {
-               value += 1
+        if value < 1.0 {
+            value += 0.1
            }
     }
 }
