@@ -6,7 +6,10 @@
 //SlideDisplayable
 
 import Foundation
+//순서 프로토콜
 protocol Order{
-    func display()
-    func prepareForDisplay()
+    var orderIndex: Int { get set }
+    
+    func moveForward()
+    func moveBackward()
 }
