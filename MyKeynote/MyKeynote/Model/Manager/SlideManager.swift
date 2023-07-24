@@ -6,25 +6,47 @@
 //
 
 import Foundation
+protocol SlideManaging {
+    var slideCount: Int { get }
+    mutating func addSlide()
+    mutating func addElement(length: Int, backgroundColor: SlideRGBColor, type: BaseElement.Type)
+}
 
-struct SlideManager{
-    private let factory = SlideFactory()
-    var slideArray : [Slide]
-    //슬라이드 전체 개수를 알려주는 메소드 (또는 computed property)가 있다.
+struct SlideManager : SlideManaging{
+
+    private let componentFactory: SlideComponentFactoryProtocol
+    private let slideFactory: SlideFactoryProtocol
+    
+    var slideCollection : SlideCollection
+    
+    var selectedSlide : SlideProtocol?
+    
     var slideCount : Int {
-        return slideArray.count
-    }
-    //Subscrit로 index를 넘기면 해당 슬라이드 모델을 return한다.
-    subscript(index: Int) -> Slide? {
-        return (index >= 0 && index < slideArray.count) ? slideArray[index] : nil
+        return slideCollection.getCount()
     }
     
-    //새로운 슬라이드를 생성하고 나면 내부에 추가한다.
+    
+    init(componentFactory: SlideComponentFactoryProtocol, slideFactory: SlideFactoryProtocol, slideCollection: SlideCollection) {
+            self.componentFactory = componentFactory
+            self.slideFactory = slideFactory
+            self.slideCollection = slideCollection
+        }
+    
+    
     mutating func addSlide(){
-        let newSlide = factory.createRandomSlide()
-        slideArray.append(newSlide)
+        let newSlide = slideFactory.createRandomSlide()
+        slideCollection.addSlide(slide: newSlide)
+        selectedSlide = newSlide
     }
     
-    //현재 선택된 슬라이드?
+    mutating func addElement(length: Int, backgroundColor: SlideRGBColor, type: BaseElement.Type) {
+        let newComponent = componentFactory.createComponent(length: length, backgroundColor: backgroundColor, type: type)
+        guard let slide = selectedSlide else {
+            return
+        }
+        slide.addElement(newComponent)
+    }
+    
+    
 }
 
