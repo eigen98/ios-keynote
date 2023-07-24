@@ -7,44 +7,48 @@
 
 import Foundation
 
-class BaseSlide : SlideContentManageable, SlideDisplayable{
-    
+class BaseSlide : SlideProtocol {
+   
     private let id: String
-    var length: Int
     var backgroundColor: SlideRGBColor
-    var alpha: AlphaLevel = .level1
-    private(set) var elements: [SlideElementProtocol] = []
     
-    init(id: String, length: Int, backgroundColor: SlideRGBColor) {
+    //Order
+    var orderIndex: Int = 0
+    
+    //SlideContentManageable
+    private(set) var elements: ElementCollection = ElementCollection()
+    
+    init(id: String, backgroundColor: SlideRGBColor) {
         self.id = id
-        self.length = length
         self.backgroundColor = backgroundColor
     }
-    
-    func prepareForDisplay() {
-        
-    }
-    
+}
+//SlideContentManageable
+extension BaseSlide{
     func addElement(_ element: SlideElementProtocol) {
-        self.elements.append(element)
+        self.elements.addElement(element: element)
     }
     
     func removeElement(_ element: SlideElementProtocol) {
         
     }
-    
-    func display() {
+}
+
+//Order
+extension BaseSlide{
+    func moveForward() {
         
     }
     
-    
+    func moveBackward() {
+        
+    }
 }
 
 extension BaseSlide : CustomStringConvertible{
     var description: String {
-        return "(\(id)), Side:\(length), R:\(backgroundColor.red), G:\(backgroundColor.green), B:\(backgroundColor.blue), Alpha: \(alpha.rawValue)"
+        return "(\(id)), R:\(backgroundColor.red), G:\(backgroundColor.green), B:\(backgroundColor.blue)"
     }
 }
-
 
 
