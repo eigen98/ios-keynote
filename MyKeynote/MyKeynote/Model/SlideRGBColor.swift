@@ -11,4 +11,7 @@ struct SlideRGBColor{
     let red: Int
     let green: Int
     let blue: Int
+    
+
+    
 }
