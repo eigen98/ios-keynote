@@ -10,27 +10,61 @@ import XCTest
 
 final class MyKeynoteTests: XCTestCase {
 
+    
+    var sut: SlideManager! // System Under Test
+    var mockComponentFactory: MockComponentFactory!
+    var mockSlideFactory: MockSlideFactory!
+    var slideCollection: SlideCollection!
+    
+    
+    
     override func setUpWithError() throws {
-        // Put setup code here. This method is called before the invocation of each test method in the class.
+      
+        mockComponentFactory = MockComponentFactory()
+        mockSlideFactory = MockSlideFactory()
+        slideCollection = SlideCollection()
+        sut = SlideManager(componentFactory: mockComponentFactory,
+                           slideFactory: mockSlideFactory,
+                           slideCollection: slideCollection)
     }
-
-    override func tearDownWithError() throws {
-        // Put teardown code here. This method is called after the invocation of each test method in the class.
+    
+    func testAddSlide() {
+        // Given
+        let initialSlideCount = sut.slideCount
+        
+        // When
+        sut.addSlide()
+        
+        // Then
+        XCTAssertEqual(sut.slideCount, initialSlideCount + 1)
+        XCTAssertNotNil(sut.selectedSlide)
+        XCTAssertTrue(mockSlideFactory.createRandomSlideCalled)
     }
-
-    func testExample() throws {
-        // This is an example of a functional test case.
-        // Use XCTAssert and related functions to verify your tests produce the correct results.
-        // Any test you write for XCTest can be annotated as throws and async.
-        // Mark your test throws to produce an unexpected failure when your test encounters an uncaught error.
-        // Mark your test async to allow awaiting for asynchronous code to complete. Check the results with assertions afterwards.
+    
+    func testAddElement() {
+        // Given
+        let length = 200
+        let color = SlideRGBColor(red: 100, green: 100, blue: 100)
+        let type = RectangleElement.self
+        
+        sut.addSlide()
+        
+        // When
+        sut.addElement(length: length, backgroundColor: color, type: type)
+        
+        // Then
+        XCTAssertTrue(mockComponentFactory.createComponentCalled)
+        XCTAssertEqual(sut.selectedSlide?.elements.getCount(), 1)
     }
-
-    func testPerformanceExample() throws {
-        // This is an example of a performance test case.
-        self.measure {
-            // Put the code you want to measure the time of here.
-        }
+    
+    
+    override func tearDown() {
+        sut = nil
+        mockComponentFactory = nil
+        mockSlideFactory = nil
+        slideCollection = nil
+        
+        super.tearDown()
     }
-
+    
 }

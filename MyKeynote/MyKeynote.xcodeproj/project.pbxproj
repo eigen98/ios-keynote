@@ -7,25 +7,45 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		5F06D1532A6670BA000A34B2 /* SlideElement.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F06D1522A6670BA000A34B2 /* SlideElement.swift */; };
+		5F06D1532A6670BA000A34B2 /* SlideElementProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F06D1522A6670BA000A34B2 /* SlideElementProtocol.swift */; };
+		5F1F1F0F2A6CE5C5007481DE /* RectangleElement.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F1F1F0E2A6CE5C5007481DE /* RectangleElement.swift */; };
+		5F1F1F132A6CEE0C007481DE /* BaseComponentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F1F1F122A6CEE0C007481DE /* BaseComponentView.swift */; };
+		5F35E1FE2A67B939001ECDB8 /* SlideManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F35E1FD2A67B939001ECDB8 /* SlideManager.swift */; };
+		5F35E2002A67B95B001ECDB8 /* SlideCollection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F35E1FF2A67B95B001ECDB8 /* SlideCollection.swift */; };
+		5F35E2032A67BA5D001ECDB8 /* InspectorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F35E2022A67BA5D001ECDB8 /* InspectorView.swift */; };
+		5F35E2052A67BA86001ECDB8 /* SlideListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F35E2042A67BA86001ECDB8 /* SlideListView.swift */; };
+		5F35E2072A67BD75001ECDB8 /* Selectable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F35E2062A67BD75001ECDB8 /* Selectable.swift */; };
+		5F35E2092A67C80D001ECDB8 /* KeynoteView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F35E2082A67C80D001ECDB8 /* KeynoteView.swift */; };
 		5F3A60D32A6687FD0012212B /* SlideContentManageable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F3A60D22A6687FD0012212B /* SlideContentManageable.swift */; };
-		5F3A60D52A6688190012212B /* SlideDisplayable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F3A60D42A6688190012212B /* SlideDisplayable.swift */; };
+		5F3A60D52A6688190012212B /* Order.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F3A60D42A6688190012212B /* Order.swift */; };
 		5F3A60D82A6688450012212B /* SlideRGBColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F3A60D72A6688450012212B /* SlideRGBColor.swift */; };
 		5F3A60DA2A66887C0012212B /* AnimationApplicable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F3A60D92A66887C0012212B /* AnimationApplicable.swift */; };
-		5F3A60DC2A6688A30012212B /* SquareSlide.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F3A60DB2A6688A30012212B /* SquareSlide.swift */; };
+		5F3A60DC2A6688A30012212B /* BaseSlide.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F3A60DB2A6688A30012212B /* BaseSlide.swift */; };
 		5F3A60DE2A668A100012212B /* AlphaLevel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F3A60DD2A668A100012212B /* AlphaLevel.swift */; };
 		5F3A60E02A6695E20012212B /* IDGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F3A60DF2A6695E20012212B /* IDGenerator.swift */; };
+		5F4DC8912A68B8C500DC3CF6 /* BaseElement.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F4DC8902A68B8C500DC3CF6 /* BaseElement.swift */; };
+		5F4DC8932A68B9D000DC3CF6 /* RectangleComponentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F4DC8922A68B9D000DC3CF6 /* RectangleComponentView.swift */; };
+		5F4DC8962A68BAA600DC3CF6 /* ComponentFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F4DC8952A68BAA600DC3CF6 /* ComponentFactory.swift */; };
+		5F4DC89F2A68D2B300DC3CF6 /* SlideDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F4DC89E2A68D2B300DC3CF6 /* SlideDataSource.swift */; };
+		5F4DC8A12A68D75500DC3CF6 /* PresentationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F4DC8A02A68D75500DC3CF6 /* PresentationView.swift */; };
+		5F593B8B2A69780F0069C24F /* UIColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F593B8A2A69780F0069C24F /* UIColor.swift */; };
+		5F696AD02A68A3F800CB7C56 /* CustomStepperButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F696ACF2A68A3F800CB7C56 /* CustomStepperButton.swift */; };
 		5FBA89B92A64FFC300C07196 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FBA89B82A64FFC300C07196 /* AppDelegate.swift */; };
 		5FBA89BB2A64FFC300C07196 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FBA89BA2A64FFC300C07196 /* SceneDelegate.swift */; };
-		5FBA89BD2A64FFC300C07196 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FBA89BC2A64FFC300C07196 /* ViewController.swift */; };
-		5FBA89C02A64FFC300C07196 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5FBA89BE2A64FFC300C07196 /* Main.storyboard */; };
+		5FBA89BD2A64FFC300C07196 /* KeynoteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FBA89BC2A64FFC300C07196 /* KeynoteViewController.swift */; };
 		5FBA89C22A64FFC300C07196 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5FBA89C12A64FFC300C07196 /* Assets.xcassets */; };
 		5FBA89C52A64FFC300C07196 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5FBA89C32A64FFC300C07196 /* LaunchScreen.storyboard */; };
 		5FBA89D02A64FFC300C07196 /* MyKeynoteTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FBA89CF2A64FFC300C07196 /* MyKeynoteTests.swift */; };
 		5FBA89DA2A64FFC300C07196 /* MyKeynoteUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FBA89D92A64FFC300C07196 /* MyKeynoteUITests.swift */; };
 		5FBA89DC2A64FFC300C07196 /* MyKeynoteUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FBA89DB2A64FFC300C07196 /* MyKeynoteUITestsLaunchTests.swift */; };
-		5FBA89EA2A64FFD500C07196 /* Slide.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FBA89E92A64FFD500C07196 /* Slide.swift */; };
 		5FBA89EC2A6529BE00C07196 /* SlideFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FBA89EB2A6529BE00C07196 /* SlideFactory.swift */; };
+		5FC22CBA2A6E08CC00FAF78F /* Draggable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FC22CB92A6E08CC00FAF78F /* Draggable.swift */; };
+		5FC22CBC2A6E0A7900FAF78F /* Resizable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FC22CBB2A6E0A7900FAF78F /* Resizable.swift */; };
+		5FC22CBE2A6E0D7900FAF78F /* ElementCollection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FC22CBD2A6E0D7900FAF78F /* ElementCollection.swift */; };
+		5FC22CC02A6E168B00FAF78F /* SlideProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FC22CBF2A6E168B00FAF78F /* SlideProtocol.swift */; };
+		5FC22CC32A6E622700FAF78F /* CompositionRoot.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FC22CC22A6E622700FAF78F /* CompositionRoot.swift */; };
+		5FC22CC62A6E6BA100FAF78F /* MockComponentFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FC22CC52A6E6BA100FAF78F /* MockComponentFactory.swift */; };
+		5FC22CC82A6E6BB300FAF78F /* MockSlideFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FC22CC72A6E6BB300FAF78F /* MockSlideFactory.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -46,19 +66,33 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		5F06D1522A6670BA000A34B2 /* SlideElement.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SlideElement.swift; sourceTree = "<group>"; };
+		5F06D1522A6670BA000A34B2 /* SlideElementProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SlideElementProtocol.swift; sourceTree = "<group>"; };
+		5F1F1F0E2A6CE5C5007481DE /* RectangleElement.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RectangleElement.swift; sourceTree = "<group>"; };
+		5F1F1F122A6CEE0C007481DE /* BaseComponentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseComponentView.swift; sourceTree = "<group>"; };
+		5F35E1FD2A67B939001ECDB8 /* SlideManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SlideManager.swift; sourceTree = "<group>"; };
+		5F35E1FF2A67B95B001ECDB8 /* SlideCollection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SlideCollection.swift; sourceTree = "<group>"; };
+		5F35E2022A67BA5D001ECDB8 /* InspectorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InspectorView.swift; sourceTree = "<group>"; };
+		5F35E2042A67BA86001ECDB8 /* SlideListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SlideListView.swift; sourceTree = "<group>"; };
+		5F35E2062A67BD75001ECDB8 /* Selectable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Selectable.swift; sourceTree = "<group>"; };
+		5F35E2082A67C80D001ECDB8 /* KeynoteView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeynoteView.swift; sourceTree = "<group>"; };
 		5F3A60D22A6687FD0012212B /* SlideContentManageable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SlideContentManageable.swift; sourceTree = "<group>"; };
-		5F3A60D42A6688190012212B /* SlideDisplayable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SlideDisplayable.swift; sourceTree = "<group>"; };
+		5F3A60D42A6688190012212B /* Order.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Order.swift; sourceTree = "<group>"; };
 		5F3A60D72A6688450012212B /* SlideRGBColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SlideRGBColor.swift; sourceTree = "<group>"; };
 		5F3A60D92A66887C0012212B /* AnimationApplicable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimationApplicable.swift; sourceTree = "<group>"; };
-		5F3A60DB2A6688A30012212B /* SquareSlide.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SquareSlide.swift; sourceTree = "<group>"; };
+		5F3A60DB2A6688A30012212B /* BaseSlide.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseSlide.swift; sourceTree = "<group>"; };
 		5F3A60DD2A668A100012212B /* AlphaLevel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlphaLevel.swift; sourceTree = "<group>"; };
 		5F3A60DF2A6695E20012212B /* IDGenerator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IDGenerator.swift; sourceTree = "<group>"; };
+		5F4DC8902A68B8C500DC3CF6 /* BaseElement.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseElement.swift; sourceTree = "<group>"; };
+		5F4DC8922A68B9D000DC3CF6 /* RectangleComponentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RectangleComponentView.swift; sourceTree = "<group>"; };
+		5F4DC8952A68BAA600DC3CF6 /* ComponentFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComponentFactory.swift; sourceTree = "<group>"; };
+		5F4DC89E2A68D2B300DC3CF6 /* SlideDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SlideDataSource.swift; sourceTree = "<group>"; };
+		5F4DC8A02A68D75500DC3CF6 /* PresentationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PresentationView.swift; sourceTree = "<group>"; };
+		5F593B8A2A69780F0069C24F /* UIColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIColor.swift; sourceTree = "<group>"; };
+		5F696ACF2A68A3F800CB7C56 /* CustomStepperButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomStepperButton.swift; sourceTree = "<group>"; };
 		5FBA89B52A64FFC300C07196 /* MyKeynote.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MyKeynote.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5FBA89B82A64FFC300C07196 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		5FBA89BA2A64FFC300C07196 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		5FBA89BC2A64FFC300C07196 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		5FBA89BF2A64FFC300C07196 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		5FBA89BC2A64FFC300C07196 /* KeynoteViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeynoteViewController.swift; sourceTree = "<group>"; };
 		5FBA89C12A64FFC300C07196 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		5FBA89C42A64FFC300C07196 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		5FBA89C62A64FFC300C07196 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -67,8 +101,14 @@
 		5FBA89D52A64FFC300C07196 /* MyKeynoteUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MyKeynoteUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		5FBA89D92A64FFC300C07196 /* MyKeynoteUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyKeynoteUITests.swift; sourceTree = "<group>"; };
 		5FBA89DB2A64FFC300C07196 /* MyKeynoteUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyKeynoteUITestsLaunchTests.swift; sourceTree = "<group>"; };
-		5FBA89E92A64FFD500C07196 /* Slide.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Slide.swift; sourceTree = "<group>"; };
 		5FBA89EB2A6529BE00C07196 /* SlideFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SlideFactory.swift; sourceTree = "<group>"; };
+		5FC22CB92A6E08CC00FAF78F /* Draggable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Draggable.swift; sourceTree = "<group>"; };
+		5FC22CBB2A6E0A7900FAF78F /* Resizable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Resizable.swift; sourceTree = "<group>"; };
+		5FC22CBD2A6E0D7900FAF78F /* ElementCollection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ElementCollection.swift; sourceTree = "<group>"; };
+		5FC22CBF2A6E168B00FAF78F /* SlideProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SlideProtocol.swift; sourceTree = "<group>"; };
+		5FC22CC22A6E622700FAF78F /* CompositionRoot.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompositionRoot.swift; sourceTree = "<group>"; };
+		5FC22CC52A6E6BA100FAF78F /* MockComponentFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockComponentFactory.swift; sourceTree = "<group>"; };
+		5FC22CC72A6E6BB300FAF78F /* MockSlideFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockSlideFactory.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -96,6 +136,73 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		5F35E2012A67B9F2001ECDB8 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				5F35E2022A67BA5D001ECDB8 /* InspectorView.swift */,
+				5F35E2082A67C80D001ECDB8 /* KeynoteView.swift */,
+				5F4DC8A02A68D75500DC3CF6 /* PresentationView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		5F4DC8942A68BA9100DC3CF6 /* Factory */ = {
+			isa = PBXGroup;
+			children = (
+				5FBA89EB2A6529BE00C07196 /* SlideFactory.swift */,
+				5F4DC8952A68BAA600DC3CF6 /* ComponentFactory.swift */,
+				5FC22CBD2A6E0D7900FAF78F /* ElementCollection.swift */,
+			);
+			path = Factory;
+			sourceTree = "<group>";
+		};
+		5F4DC8972A68C3C600DC3CF6 /* Slide */ = {
+			isa = PBXGroup;
+			children = (
+				5F35E2042A67BA86001ECDB8 /* SlideListView.swift */,
+				5F3A60DB2A6688A30012212B /* BaseSlide.swift */,
+				5FC22CBF2A6E168B00FAF78F /* SlideProtocol.swift */,
+			);
+			path = Slide;
+			sourceTree = "<group>";
+		};
+		5F4DC89A2A68C42900DC3CF6 /* Element */ = {
+			isa = PBXGroup;
+			children = (
+				5F4DC8902A68B8C500DC3CF6 /* BaseElement.swift */,
+				5F06D1522A6670BA000A34B2 /* SlideElementProtocol.swift */,
+				5F1F1F0E2A6CE5C5007481DE /* RectangleElement.swift */,
+			);
+			path = Element;
+			sourceTree = "<group>";
+		};
+		5F4DC89D2A68D29400DC3CF6 /* Manager */ = {
+			isa = PBXGroup;
+			children = (
+				5F35E1FD2A67B939001ECDB8 /* SlideManager.swift */,
+				5F4DC89E2A68D2B300DC3CF6 /* SlideDataSource.swift */,
+			);
+			path = Manager;
+			sourceTree = "<group>";
+		};
+		5F593B892A6977F80069C24F /* Extension */ = {
+			isa = PBXGroup;
+			children = (
+				5F593B8A2A69780F0069C24F /* UIColor.swift */,
+			);
+			path = Extension;
+			sourceTree = "<group>";
+		};
+		5F696ACE2A68A37E00CB7C56 /* Component */ = {
+			isa = PBXGroup;
+			children = (
+				5F696ACF2A68A3F800CB7C56 /* CustomStepperButton.swift */,
+				5F4DC8922A68B9D000DC3CF6 /* RectangleComponentView.swift */,
+				5F1F1F122A6CEE0C007481DE /* BaseComponentView.swift */,
+			);
+			path = Component;
+			sourceTree = "<group>";
+		};
 		5FBA89AC2A64FFC300C07196 = {
 			isa = PBXGroup;
 			children = (
@@ -119,11 +226,14 @@
 		5FBA89B72A64FFC300C07196 /* MyKeynote */ = {
 			isa = PBXGroup;
 			children = (
+				5FC22CC12A6E621900FAF78F /* DI */,
+				5F593B892A6977F80069C24F /* Extension */,
+				5F696ACE2A68A37E00CB7C56 /* Component */,
+				5F35E2012A67B9F2001ECDB8 /* View */,
 				5FBA89E82A64FFC900C07196 /* Model */,
 				5FBA89B82A64FFC300C07196 /* AppDelegate.swift */,
 				5FBA89BA2A64FFC300C07196 /* SceneDelegate.swift */,
-				5FBA89BC2A64FFC300C07196 /* ViewController.swift */,
-				5FBA89BE2A64FFC300C07196 /* Main.storyboard */,
+				5FBA89BC2A64FFC300C07196 /* KeynoteViewController.swift */,
 				5FBA89C12A64FFC300C07196 /* Assets.xcassets */,
 				5FBA89C32A64FFC300C07196 /* LaunchScreen.storyboard */,
 				5FBA89C62A64FFC300C07196 /* Info.plist */,
@@ -134,6 +244,7 @@
 		5FBA89CE2A64FFC300C07196 /* MyKeynoteTests */ = {
 			isa = PBXGroup;
 			children = (
+				5FC22CC42A6E6B8F00FAF78F /* Mock */,
 				5FBA89CF2A64FFC300C07196 /* MyKeynoteTests.swift */,
 			);
 			path = MyKeynoteTests;
@@ -151,18 +262,39 @@
 		5FBA89E82A64FFC900C07196 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				5FBA89E92A64FFD500C07196 /* Slide.swift */,
-				5F3A60DB2A6688A30012212B /* SquareSlide.swift */,
-				5FBA89EB2A6529BE00C07196 /* SlideFactory.swift */,
-				5F06D1522A6670BA000A34B2 /* SlideElement.swift */,
+				5F4DC89D2A68D29400DC3CF6 /* Manager */,
+				5F4DC89A2A68C42900DC3CF6 /* Element */,
+				5F4DC8972A68C3C600DC3CF6 /* Slide */,
+				5F4DC8942A68BA9100DC3CF6 /* Factory */,
 				5F3A60D22A6687FD0012212B /* SlideContentManageable.swift */,
-				5F3A60D42A6688190012212B /* SlideDisplayable.swift */,
+				5F3A60D42A6688190012212B /* Order.swift */,
 				5F3A60D72A6688450012212B /* SlideRGBColor.swift */,
 				5F3A60D92A66887C0012212B /* AnimationApplicable.swift */,
 				5F3A60DD2A668A100012212B /* AlphaLevel.swift */,
+				5F35E1FF2A67B95B001ECDB8 /* SlideCollection.swift */,
 				5F3A60DF2A6695E20012212B /* IDGenerator.swift */,
+				5F35E2062A67BD75001ECDB8 /* Selectable.swift */,
+				5FC22CB92A6E08CC00FAF78F /* Draggable.swift */,
+				5FC22CBB2A6E0A7900FAF78F /* Resizable.swift */,
 			);
 			path = Model;
+			sourceTree = "<group>";
+		};
+		5FC22CC12A6E621900FAF78F /* DI */ = {
+			isa = PBXGroup;
+			children = (
+				5FC22CC22A6E622700FAF78F /* CompositionRoot.swift */,
+			);
+			path = DI;
+			sourceTree = "<group>";
+		};
+		5FC22CC42A6E6B8F00FAF78F /* Mock */ = {
+			isa = PBXGroup;
+			children = (
+				5FC22CC52A6E6BA100FAF78F /* MockComponentFactory.swift */,
+				5FC22CC72A6E6BB300FAF78F /* MockSlideFactory.swift */,
+			);
+			path = Mock;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -271,7 +403,6 @@
 			files = (
 				5FBA89C52A64FFC300C07196 /* LaunchScreen.storyboard in Resources */,
 				5FBA89C22A64FFC300C07196 /* Assets.xcassets in Resources */,
-				5FBA89C02A64FFC300C07196 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -297,18 +428,37 @@
 			buildActionMask = 2147483647;
 			files = (
 				5F3A60E02A6695E20012212B /* IDGenerator.swift in Sources */,
-				5F06D1532A6670BA000A34B2 /* SlideElement.swift in Sources */,
+				5F4DC89F2A68D2B300DC3CF6 /* SlideDataSource.swift in Sources */,
+				5FC22CC02A6E168B00FAF78F /* SlideProtocol.swift in Sources */,
+				5F4DC8A12A68D75500DC3CF6 /* PresentationView.swift in Sources */,
+				5F06D1532A6670BA000A34B2 /* SlideElementProtocol.swift in Sources */,
 				5F3A60DE2A668A100012212B /* AlphaLevel.swift in Sources */,
+				5FC22CBC2A6E0A7900FAF78F /* Resizable.swift in Sources */,
+				5F4DC8962A68BAA600DC3CF6 /* ComponentFactory.swift in Sources */,
+				5FC22CBE2A6E0D7900FAF78F /* ElementCollection.swift in Sources */,
+				5F35E2092A67C80D001ECDB8 /* KeynoteView.swift in Sources */,
+				5F35E2052A67BA86001ECDB8 /* SlideListView.swift in Sources */,
+				5F1F1F0F2A6CE5C5007481DE /* RectangleElement.swift in Sources */,
 				5F3A60D82A6688450012212B /* SlideRGBColor.swift in Sources */,
 				5FBA89EC2A6529BE00C07196 /* SlideFactory.swift in Sources */,
-				5FBA89BD2A64FFC300C07196 /* ViewController.swift in Sources */,
+				5FBA89BD2A64FFC300C07196 /* KeynoteViewController.swift in Sources */,
 				5F3A60D32A6687FD0012212B /* SlideContentManageable.swift in Sources */,
-				5F3A60D52A6688190012212B /* SlideDisplayable.swift in Sources */,
-				5F3A60DC2A6688A30012212B /* SquareSlide.swift in Sources */,
+				5F35E1FE2A67B939001ECDB8 /* SlideManager.swift in Sources */,
+				5F35E2072A67BD75001ECDB8 /* Selectable.swift in Sources */,
+				5F35E2032A67BA5D001ECDB8 /* InspectorView.swift in Sources */,
+				5F3A60D52A6688190012212B /* Order.swift in Sources */,
+				5F35E2002A67B95B001ECDB8 /* SlideCollection.swift in Sources */,
+				5F696AD02A68A3F800CB7C56 /* CustomStepperButton.swift in Sources */,
+				5F1F1F132A6CEE0C007481DE /* BaseComponentView.swift in Sources */,
+				5F4DC8912A68B8C500DC3CF6 /* BaseElement.swift in Sources */,
+				5F4DC8932A68B9D000DC3CF6 /* RectangleComponentView.swift in Sources */,
+				5F3A60DC2A6688A30012212B /* BaseSlide.swift in Sources */,
+				5F593B8B2A69780F0069C24F /* UIColor.swift in Sources */,
 				5F3A60DA2A66887C0012212B /* AnimationApplicable.swift in Sources */,
 				5FBA89B92A64FFC300C07196 /* AppDelegate.swift in Sources */,
+				5FC22CC32A6E622700FAF78F /* CompositionRoot.swift in Sources */,
+				5FC22CBA2A6E08CC00FAF78F /* Draggable.swift in Sources */,
 				5FBA89BB2A64FFC300C07196 /* SceneDelegate.swift in Sources */,
-				5FBA89EA2A64FFD500C07196 /* Slide.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -316,6 +466,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5FC22CC82A6E6BB300FAF78F /* MockSlideFactory.swift in Sources */,
+				5FC22CC62A6E6BA100FAF78F /* MockComponentFactory.swift in Sources */,
 				5FBA89D02A64FFC300C07196 /* MyKeynoteTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -345,14 +497,6 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		5FBA89BE2A64FFC300C07196 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				5FBA89BF2A64FFC300C07196 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		5FBA89C32A64FFC300C07196 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -490,7 +634,6 @@
 				INFOPLIST_FILE = MyKeynote/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -521,7 +664,6 @@
 				INFOPLIST_FILE = MyKeynote/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (

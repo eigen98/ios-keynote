@@ -8,5 +8,5 @@
 import Foundation
 protocol AnimationApplicable {
     var duration: TimeInterval { get set }
-    func apply(to element: SlideElement)
+    func apply(to element: SlideElementProtocol)
 }

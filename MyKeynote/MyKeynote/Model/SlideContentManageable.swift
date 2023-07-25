@@ -7,7 +7,7 @@
 
 import Foundation
 protocol SlideContentManageable {
-    var elements: [SlideElement] { get }
-    func addElement(_ element: SlideElement)
-    func removeElement(_ element: SlideElement)
+    var elements: ElementCollection { get }
+    func addElement(_ element: SlideElementProtocol)
+    func removeElement(_ element: SlideElementProtocol)
 }
