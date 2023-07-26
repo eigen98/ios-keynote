@@ -32,6 +32,10 @@ extension BaseSlide{
     func removeElement(_ element: SlideElementProtocol) {
         
     }
+    func getElement(id: String) -> SlideElementProtocol? {
+        return elements.getElement(id: id)
+    }
+    
 }
 
 //Order
