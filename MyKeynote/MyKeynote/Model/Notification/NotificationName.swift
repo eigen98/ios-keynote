@@ -6,3 +6,12 @@
 //
 
 import Foundation
+enum NotificationName: String {
+    case backgroundColorChanged
+    case transparencyChanged
+    case changeSelectedElementId
+    
+    var notification: Notification.Name {
+        return Notification.Name(self.rawValue)
+    }
+}
