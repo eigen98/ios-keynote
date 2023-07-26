@@ -16,6 +16,7 @@
 		5F35E2052A67BA86001ECDB8 /* SlideListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F35E2042A67BA86001ECDB8 /* SlideListView.swift */; };
 		5F35E2072A67BD75001ECDB8 /* Selectable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F35E2062A67BD75001ECDB8 /* Selectable.swift */; };
 		5F35E2092A67C80D001ECDB8 /* KeynoteView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F35E2082A67C80D001ECDB8 /* KeynoteView.swift */; };
+		5F369E652A70B81F00AEDDE4 /* SlideRGBColor+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F369E642A70B81F00AEDDE4 /* SlideRGBColor+.swift */; };
 		5F3A60D32A6687FD0012212B /* SlideContentManageable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F3A60D22A6687FD0012212B /* SlideContentManageable.swift */; };
 		5F3A60D52A6688190012212B /* Order.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F3A60D42A6688190012212B /* Order.swift */; };
 		5F3A60D82A6688450012212B /* SlideRGBColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F3A60D72A6688450012212B /* SlideRGBColor.swift */; };
@@ -23,6 +24,7 @@
 		5F3A60DC2A6688A30012212B /* BaseSlide.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F3A60DB2A6688A30012212B /* BaseSlide.swift */; };
 		5F3A60DE2A668A100012212B /* AlphaLevel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F3A60DD2A668A100012212B /* AlphaLevel.swift */; };
 		5F3A60E02A6695E20012212B /* IDGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F3A60DF2A6695E20012212B /* IDGenerator.swift */; };
+		5F448CF72A709AD100239DBA /* NotificationName.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F448CF62A709AD100239DBA /* NotificationName.swift */; };
 		5F4DC8912A68B8C500DC3CF6 /* BaseElement.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F4DC8902A68B8C500DC3CF6 /* BaseElement.swift */; };
 		5F4DC8932A68B9D000DC3CF6 /* RectangleComponentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F4DC8922A68B9D000DC3CF6 /* RectangleComponentView.swift */; };
 		5F4DC8962A68BAA600DC3CF6 /* ComponentFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F4DC8952A68BAA600DC3CF6 /* ComponentFactory.swift */; };
@@ -75,6 +77,7 @@
 		5F35E2042A67BA86001ECDB8 /* SlideListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SlideListView.swift; sourceTree = "<group>"; };
 		5F35E2062A67BD75001ECDB8 /* Selectable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Selectable.swift; sourceTree = "<group>"; };
 		5F35E2082A67C80D001ECDB8 /* KeynoteView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeynoteView.swift; sourceTree = "<group>"; };
+		5F369E642A70B81F00AEDDE4 /* SlideRGBColor+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SlideRGBColor+.swift"; sourceTree = "<group>"; };
 		5F3A60D22A6687FD0012212B /* SlideContentManageable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SlideContentManageable.swift; sourceTree = "<group>"; };
 		5F3A60D42A6688190012212B /* Order.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Order.swift; sourceTree = "<group>"; };
 		5F3A60D72A6688450012212B /* SlideRGBColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SlideRGBColor.swift; sourceTree = "<group>"; };
@@ -82,6 +85,7 @@
 		5F3A60DB2A6688A30012212B /* BaseSlide.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseSlide.swift; sourceTree = "<group>"; };
 		5F3A60DD2A668A100012212B /* AlphaLevel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlphaLevel.swift; sourceTree = "<group>"; };
 		5F3A60DF2A6695E20012212B /* IDGenerator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IDGenerator.swift; sourceTree = "<group>"; };
+		5F448CF62A709AD100239DBA /* NotificationName.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationName.swift; sourceTree = "<group>"; };
 		5F4DC8902A68B8C500DC3CF6 /* BaseElement.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseElement.swift; sourceTree = "<group>"; };
 		5F4DC8922A68B9D000DC3CF6 /* RectangleComponentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RectangleComponentView.swift; sourceTree = "<group>"; };
 		5F4DC8952A68BAA600DC3CF6 /* ComponentFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComponentFactory.swift; sourceTree = "<group>"; };
@@ -146,6 +150,14 @@
 			path = View;
 			sourceTree = "<group>";
 		};
+		5F448CF52A709ABE00239DBA /* Notification */ = {
+			isa = PBXGroup;
+			children = (
+				5F448CF62A709AD100239DBA /* NotificationName.swift */,
+			);
+			path = Notification;
+			sourceTree = "<group>";
+		};
 		5F4DC8942A68BA9100DC3CF6 /* Factory */ = {
 			isa = PBXGroup;
 			children = (
@@ -189,6 +201,7 @@
 			isa = PBXGroup;
 			children = (
 				5F593B8A2A69780F0069C24F /* UIColor.swift */,
+				5F369E642A70B81F00AEDDE4 /* SlideRGBColor+.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -262,6 +275,7 @@
 		5FBA89E82A64FFC900C07196 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				5F448CF52A709ABE00239DBA /* Notification */,
 				5F4DC89D2A68D29400DC3CF6 /* Manager */,
 				5F4DC89A2A68C42900DC3CF6 /* Element */,
 				5F4DC8972A68C3C600DC3CF6 /* Slide */,
@@ -445,6 +459,7 @@
 				5F3A60D32A6687FD0012212B /* SlideContentManageable.swift in Sources */,
 				5F35E1FE2A67B939001ECDB8 /* SlideManager.swift in Sources */,
 				5F35E2072A67BD75001ECDB8 /* Selectable.swift in Sources */,
+				5F448CF72A709AD100239DBA /* NotificationName.swift in Sources */,
 				5F35E2032A67BA5D001ECDB8 /* InspectorView.swift in Sources */,
 				5F3A60D52A6688190012212B /* Order.swift in Sources */,
 				5F35E2002A67B95B001ECDB8 /* SlideCollection.swift in Sources */,
@@ -453,6 +468,7 @@
 				5F4DC8912A68B8C500DC3CF6 /* BaseElement.swift in Sources */,
 				5F4DC8932A68B9D000DC3CF6 /* RectangleComponentView.swift in Sources */,
 				5F3A60DC2A6688A30012212B /* BaseSlide.swift in Sources */,
+				5F369E652A70B81F00AEDDE4 /* SlideRGBColor+.swift in Sources */,
 				5F593B8B2A69780F0069C24F /* UIColor.swift in Sources */,
 				5F3A60DA2A66887C0012212B /* AnimationApplicable.swift in Sources */,
 				5FBA89B92A64FFC300C07196 /* AppDelegate.swift in Sources */,
