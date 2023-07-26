@@ -8,6 +8,9 @@
 import Foundation
 import UIKit
 //우측 인스펙터 뷰
+
+
+
 class InspectorView : UIView{
     
     private var backgroundTitleLabel : UILabel?
@@ -16,7 +19,7 @@ class InspectorView : UIView{
     private var opacityNumberLabel : UILabel?
     private var opacityButton : CustomStepperButton?
     
-    var selectedComponent: RectangleComponentView? {
+    var selectedComponent: BaseComponentView? {
         didSet {
             updateInspector()
         }
@@ -53,7 +56,7 @@ class InspectorView : UIView{
             return
         }
         
-        colorPickerButton?.backgroundColor = component.color
+        colorPickerButton?.backgroundColor = component.backgroundColor
         opacityNumberLabel?.text = String(format: "%.1f", component.alpha)
         colorPickerButton?.setTitle(component.backgroundColor?.rgbHex, for: .normal)
     }
@@ -130,6 +133,7 @@ class InspectorView : UIView{
                   let _ =  self?.selectedComponent else {
                 return
             }
+            NotificationCenter.default.post(name: NotificationName.transparencyChanged.notification, object: level)
             
             self?.opacityNumberLabel?.text = "\(level.rawValue)"
             self?.selectedComponent?.alpha = CGFloat(level.rawValue)
@@ -144,7 +148,7 @@ class InspectorView : UIView{
         }
         
         let colorPickerController = UIColorPickerViewController()
-        colorPickerController.selectedColor = component.color
+        colorPickerController.selectedColor = component.backgroundColor ?? .clear
         colorPickerController.delegate = self
         
         guard let windowScene = UIApplication.shared.connectedScenes.first as? UIWindowScene,
@@ -166,9 +170,9 @@ extension InspectorView: UIColorPickerViewControllerDelegate {
         
         let selectedColor = viewController.selectedColor
         component.backgroundColor = selectedColor
+        NotificationCenter.default.post(name: NotificationName.backgroundColorChanged.notification, object: SlideRGBColor(color: selectedColor))
         colorPickerButton?.backgroundColor = selectedColor
         colorPickerButton?.setTitle(selectedColor.rgbHex, for: .normal)
-        //보색 적용해야하는 부분
         colorPickerButton?.setTitleColor(.black, for: .normal)
     }
 }
