@@ -6,29 +6,26 @@
 //
 
 import Foundation
-enum CompositionRoot{
-    static var rootViewController : KeynoteViewController{
-        KeynoteViewController(slideManager: slideManager)
+class CompositionRoot {
+    static let shared = CompositionRoot()
+    
+    let rootViewController: KeynoteViewController
+    let slideManager: SlideManager
+    let componentFactory: SlideComponentFactoryProtocol
+    let slideFactory: SlideFactoryProtocol
+    let slideCollection: SlideCollection
+    
+    private init() {
+        componentFactory = SlideComponentFactory()
+        slideFactory = SlideFactory()
+        slideCollection = SlideCollection()
+        slideManager = SlideManager(componentFactory: componentFactory,
+                                    slideFactory: slideFactory,
+                                    slideCollection: slideCollection)
+        rootViewController = KeynoteViewController(slideManager: slideManager)
     }
-    
-    private static var slideManager : SlideManager{
-        SlideManager(componentFactory: componentFactory, slideFactory: slideFactory , slideCollection: slideCollection)
-    }
-    
-    private static var componentFactory : SlideComponentFactoryProtocol{
-        SlideComponentFactory()
-    }
-    
-    private static var slideFactory : SlideFactoryProtocol{
-        SlideFactory()
-    }
-    
-    private static var slideCollection : SlideCollection{
-        SlideCollection()
-    }
-    
-    
-    
-    
-    
 }
+
+
+
+
