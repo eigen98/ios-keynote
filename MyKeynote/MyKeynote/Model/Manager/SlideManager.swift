@@ -10,6 +10,9 @@ protocol SlideManaging {
     var slideCount: Int { get }
     mutating func addSlide()
     mutating func addElement(length: Int, backgroundColor: SlideRGBColor, type: BaseElement.Type)
+    mutating func updateElementAlpha(alpha : AlphaLevel)
+    mutating func updateElementBackgroundColor(rgbColor : SlideRGBColor)
+    mutating func updateSelectedElement(id : String)
 }
 
 struct SlideManager : SlideManaging{
@@ -20,6 +23,7 @@ struct SlideManager : SlideManaging{
     var slideCollection : SlideCollection
     
     var selectedSlide : SlideProtocol?
+    var selectedElement : SlideElementProtocol?
     
     var slideCount : Int {
         return slideCollection.getCount()
@@ -27,10 +31,10 @@ struct SlideManager : SlideManaging{
     
     
     init(componentFactory: SlideComponentFactoryProtocol, slideFactory: SlideFactoryProtocol, slideCollection: SlideCollection) {
-            self.componentFactory = componentFactory
-            self.slideFactory = slideFactory
-            self.slideCollection = slideCollection
-        }
+        self.componentFactory = componentFactory
+        self.slideFactory = slideFactory
+        self.slideCollection = slideCollection
+    }
     
     
     mutating func addSlide(){
@@ -45,6 +49,21 @@ struct SlideManager : SlideManaging{
             return
         }
         slide.addElement(newComponent)
+    }
+    
+    mutating func updateElementAlpha(alpha : AlphaLevel){
+        selectedElement?.alpha = alpha
+    }
+    
+    mutating func updateElementBackgroundColor(rgbColor : SlideRGBColor){
+        selectedElement?.backgroundColor = rgbColor
+    }
+    
+    mutating func updateSelectedElement(id : String){
+        if let element = selectedSlide?.getElement(id: id){
+            self.selectedElement = element
+        }
+        
     }
     
     
