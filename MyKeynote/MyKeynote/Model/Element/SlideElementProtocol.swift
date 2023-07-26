@@ -11,7 +11,6 @@ protocol SlideElementProtocol : Draggable, Selectable, Resizable, Order{
     var id: String { get }
     var size: CGSize { get set }
     var backgroundColor : SlideRGBColor {get set }
-    var animation: AnimationApplicable? { get set }
     var alpha : AlphaLevel{ get set }
 
 }
