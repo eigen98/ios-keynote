@@ -10,9 +10,7 @@ import UIKit
 class KeynoteViewController: UIViewController {
 
     private var keynoteView : KeynoteView?
-    var slideManager = SlideManager(componentFactory: SlideComponentFactory(),
-                                    slideFactory: SlideFactory(),
-                                    slideCollection: SlideCollection())
+    private var slideManager : SlideManager
     
     
     
@@ -22,10 +20,11 @@ class KeynoteViewController: UIViewController {
     }
     
     required init?(coder: NSCoder) {
-        super.init(coder: coder)
         slideManager = SlideManager(componentFactory: SlideComponentFactory(),
                                         slideFactory: SlideFactory(),
                                         slideCollection: SlideCollection())
+        super.init(coder: coder)
+        
         
     }
     
@@ -33,12 +32,15 @@ class KeynoteViewController: UIViewController {
         super.viewDidLoad()
         layout()
         keynoteView?.slideDataSource = self
-        attribute()
+        addObservers()
         loadInitialKeynoteState()
+        
         
     }
     
-    func layout(){
+
+    
+    private func layout(){
         keynoteView = KeynoteView()
         
         guard let keynoteView = keynoteView else { return }
@@ -52,15 +54,58 @@ class KeynoteViewController: UIViewController {
         keynoteView.layout()
         keynoteView.attribute()
     }
+
     
-    func attribute(){
-        
-    }
-    
-    func loadInitialKeynoteState(){
+    private func loadInitialKeynoteState(){
         slideManager.addSlide()
         slideManager.addElement(length: 200, backgroundColor: .init(red: 200, green: 200, blue: 200), type: RectangleElement.self)
         keynoteView?.reloadSlide()
+    }
+    
+   
+    private func addObservers() {
+        NotificationCenter.default.addObserver(
+            self,
+            selector: #selector(updateComponentAlpha(_:)),
+            name: NotificationName.transparencyChanged.notification ,
+            object: nil
+        )
+        NotificationCenter.default.addObserver(
+            self,
+            selector: #selector(updateComponentBackgroundColor(_:)),
+            name: NotificationName.backgroundColorChanged.notification ,
+            object: nil
+        )
+        NotificationCenter.default.addObserver(
+            self,
+            selector: #selector(updateSelectedElement(_:)),
+            name: NotificationName.changeSelectedElementId.notification ,
+            object: nil
+        )
+    }
+    
+    
+    @objc func updateComponentAlpha(_ notification: Notification) {
+        if let alpha = notification.object as? AlphaLevel {
+            slideManager.updateElementAlpha(alpha: alpha)
+        }
+    }
+    
+    @objc func updateComponentBackgroundColor(_ notification: Notification) {
+        if let rgbColor = notification.object as? SlideRGBColor {
+            slideManager.updateElementBackgroundColor(rgbColor: rgbColor)
+            keynoteView?.reloadSlide()
+            
+        }
+    }
+    
+    @objc func updateSelectedElement(_ notification: Notification) {
+        
+        if let id = notification.object as? String {
+            slideManager.updateSelectedElement(id: id)
+            keynoteView?.reloadSlide()
+            
+        }
     }
 }
 
