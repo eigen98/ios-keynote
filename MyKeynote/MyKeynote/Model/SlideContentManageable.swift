@@ -10,4 +10,5 @@ protocol SlideContentManageable {
     var elements: ElementCollection { get }
     func addElement(_ element: SlideElementProtocol)
     func removeElement(_ element: SlideElementProtocol)
+    func getElement(id : String) -> SlideElementProtocol? 
 }

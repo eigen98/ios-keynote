@@ -8,23 +8,16 @@
 import Foundation
 import UIKit
 class BaseComponentView: UIView {
-    private var element: SlideElementProtocol?{
-        didSet {
-            updateBorder()
+    
+    var id : String = ""
+    var isSelected: Bool? {
+            didSet {
+                updateBorder()
+            }
         }
-    }
-
-    
-    var color: UIColor {
-        return self.backgroundColor ?? .clear
-    }
-    
-    var alphaValue: Float {
-        return element?.alpha.rawValue ?? 1.0
-    }
     
     func configure(with rectangleElement: SlideElementProtocol) {
-        self.element = rectangleElement
+        id = rectangleElement.id
         self.frame.size = rectangleElement.size
         let rgbColor = rectangleElement.backgroundColor
   
@@ -32,18 +25,12 @@ class BaseComponentView: UIView {
         updateBorder()
     }
     
-    func select() {
-        element?.select()
-        updateBorder()
-    }
-   
-    func deselect() {
-        element?.deselect()
-        updateBorder()
-    }
+    func updateSelectedState(isSelected: Bool) {
+            self.isSelected = isSelected
+        }
 
     private func updateBorder() {
-        layer.borderWidth = element?.isSelected == true ? 4.0 : 0.0
+        layer.borderWidth = self.isSelected == true ? 4.0 : 0.0
         layer.borderColor = UIColor.blue.cgColor
     }
 }

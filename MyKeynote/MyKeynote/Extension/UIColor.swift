@@ -24,4 +24,15 @@ extension UIColor {
             let b = Float(components[2])
             return String(format: "0x%02X%02X%02X", Int(r * 255), Int(g * 255), Int(b * 255))
         }
+    
+    
+    
 }
+
+extension UIColor {
+    convenience init(slideColor: SlideRGBColor) {
+        self.init(red: CGFloat(slideColor.red) / 255.0, green: CGFloat(slideColor.green) / 255.0, blue: CGFloat(slideColor.blue) / 255.0, alpha: 1.0)
+    }
+}
+
+

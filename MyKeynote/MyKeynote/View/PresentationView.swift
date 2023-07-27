@@ -9,24 +9,28 @@ import Foundation
 import UIKit
 //슬라이드가 표시되는 뷰
 protocol PresentationViewDelegate: AnyObject {
-    func didSelectComponent(_ component: RectangleComponentView?)
+    func didSelectComponent(_ component: BaseComponentView?)
 }
 
 class PresentationView : UIView{
     
     weak var delegate: PresentationViewDelegate?
     
-    private var componentViews: [String: RectangleComponentView] = [:]
+    private var componentViews: [String: BaseComponentView] = [:]
        
     
     required init?(coder: NSCoder) {
         super.init(coder: coder)
+        
+        
     }
     
     override init(frame: CGRect) {
         super.init(frame: frame)
         let tapRecognizer = UITapGestureRecognizer(target: self, action: #selector(handleTap(_:)))
         self.addGestureRecognizer(tapRecognizer)
+        
+        
     }
     
     @objc func handleTap(_ recognizer: UITapGestureRecognizer) {
@@ -35,11 +39,12 @@ class PresentationView : UIView{
         let hitViews = self.subviews.filter { $0.frame.contains(location) }
         
         if let selectedView = hitViews.last as? RectangleComponentView {
-            selectedView.select()
+            
+            selectedView.updateSelectedState(isSelected: true)
             delegate?.didSelectComponent(selectedView)
         } else {
             for subview in self.subviews {
-                (subview as? RectangleComponentView)?.deselect()
+                (subview as? RectangleComponentView)?.updateSelectedState(isSelected: false)
                 delegate?.didSelectComponent(nil)
             }
         }
@@ -50,7 +55,7 @@ class PresentationView : UIView{
         if let existingComponentView = componentViews[component.id] {
             
             let size = component.size
-            
+            existingComponentView.configure(with: component)
             existingComponentView.frame = .init(x: 320,
                                                 y: 235,
                                                 width: size.width,

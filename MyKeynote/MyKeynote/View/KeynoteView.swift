@@ -122,7 +122,13 @@ class KeynoteView : UIView{
 
 
 extension KeynoteView : PresentationViewDelegate{
-    func didSelectComponent(_ component: RectangleComponentView?) {
+    func didSelectComponent(_ component: BaseComponentView?) {
         inspectorView?.selectedComponent = component
+        if let selectedId = component?.id{
+            NotificationCenter.default.post(name: NotificationName.changeSelectedElementId.notification, object: selectedId)
+       
+        }
+        
     }
 }
+

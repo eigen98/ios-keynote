@@ -12,7 +12,6 @@ class BaseElement: SlideElementProtocol {
     let id: String
     var size: CGSize
     var backgroundColor: SlideRGBColor
-    var animation: AnimationApplicable?
     var alpha: AlphaLevel
     
     //Selectable
@@ -25,21 +24,26 @@ class BaseElement: SlideElementProtocol {
     var orderIndex: Int = 0
     
     required init(id : String, position: CGPoint, size: CGSize) {
-        self.id = id
-        self.position = position
-        self.size = size
-        backgroundColor =  .init(red: 222, green: 222, blue: 0)
-        alpha = .level10
-    }
+            self.id = id
+            self.position = position
+            self.size = size
+            backgroundColor =  .init(red: 222, green: 222, blue: 0)
+            alpha = .level10
+        }
     
-    init(id : String, position: CGPoint, size: CGSize, animation: AnimationApplicable? = nil) {
-        self.id = id
-        self.position = position
-        self.size = size
-        self.animation = animation
-        backgroundColor =  .init(red: 222, green: 222, blue: 222)
-        alpha = .level1
-    }
+    init(id : String,
+            position: CGPoint,
+            size: CGSize,
+            backgroundColor: SlideRGBColor = .init(red: 222, green: 222, blue: 222),
+            alpha: AlphaLevel = .level1) {
+           
+           self.id = id
+           self.position = position
+           self.size = size
+           self.backgroundColor = backgroundColor
+           self.alpha = alpha
+       }
+    
     
     //Draggable
     func startDrag(at point: CGPoint) {

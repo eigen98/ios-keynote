@@ -22,4 +22,8 @@ struct ElementCollection {
         return elementArray.count
     }
     
+    func getElement(id: String) -> SlideElementProtocol? {
+        return elementArray.first(where: { $0.id == id })
+    }
+    
 }
