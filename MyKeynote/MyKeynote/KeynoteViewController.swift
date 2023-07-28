@@ -52,6 +52,11 @@ class KeynoteViewController: UIViewController {
         keynoteView.trailingAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.trailingAnchor).isActive = true
         
         keynoteView.layout()
+        keynoteView.setSlideTableViewDataSource(dataSource: self)
+        keynoteView.setSlideTableViewDelegate(delegate: self)
+        keynoteView.setSlideListDelegate(delegate: self)
+        keynoteView.setSlideTableViewDropDelegate(delegate: self)
+        keynoteView.setSlideTableViewDragDelegate(delegate: self)
         keynoteView.attribute()
     }
 
@@ -123,3 +128,80 @@ extension KeynoteViewController : SlideDataSource{
     }
     
 }
+
+extension KeynoteViewController : UITableViewDataSource , UITableViewDelegate{
+    
+    enum CellSize{
+        static let CELL_HEIGHT = 100.0
+    }
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return slideManager.slideCount
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: "CustomTableViewCell", for: indexPath) as? CustomTableViewCell else{
+            return UITableViewCell()
+        }
+        cell.selectionStyle = .none
+        cell.label.text = "\(indexPath.row + 1)"
+        cell.imageViewRight.image = UIImage(named: "slide_cell_img")
+        return cell
+    }
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return CellSize.CELL_HEIGHT
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        if let currentSelectedSlide = slideManager.selectedSlide,
+            currentSelectedSlide.id == slideManager.slideCollection[indexPath.row]?.id {
+            tableView.deselectRow(at: indexPath, animated: true)
+            slideManager.selectedSlide = nil
+        } else {
+            slideManager.selectedSlide = slideManager.slideCollection[indexPath.row]
+            keynoteView?.resetSlide()
+            keynoteView?.reloadSlide()
+        }
+        
+    }
+    
+    func tableView(_ tableView: UITableView, moveRowAt sourceIndexPath: IndexPath, to destinationIndexPath: IndexPath) {
+        slideManager.moveSlide(from: sourceIndexPath.row, to: destinationIndexPath.row)
+        keynoteView?.resetSlide()
+        keynoteView?.reloadSlide()
+    }
+    func tableView(_ tableView: UITableView, canMoveRowAt indexPath: IndexPath) -> Bool {
+        return true
+    }
+
+}
+
+extension KeynoteViewController : SlideListViewDelegate{
+    func addSlideButtonTapped() {
+        slideManager.addSlide()
+        slideManager.addRandomElement()
+        keynoteView?.resetSlide()
+        keynoteView?.reloadSlide()
+       
+    }
+    
+}
+
+extension KeynoteViewController : UITableViewDragDelegate{
+    func tableView(_ tableView: UITableView, itemsForBeginning session: UIDragSession, at indexPath: IndexPath) -> [UIDragItem] {
+        return [UIDragItem(itemProvider: NSItemProvider())]
+    }
+}
+
+extension KeynoteViewController: UITableViewDropDelegate {
+    func tableView(_ tableView: UITableView, dropSessionDidUpdate session: UIDropSession, withDestinationIndexPath destinationIndexPath: IndexPath?) -> UITableViewDropProposal {
+        
+        if session.localDragSession != nil {
+            return UITableViewDropProposal(operation: .move, intent: .insertAtDestinationIndexPath)
+        }
+        
+        return UITableViewDropProposal(operation: .cancel, intent: .unspecified)
+    }
+    func tableView(_ tableView: UITableView, performDropWith coordinator: UITableViewDropCoordinator) { }
+}
+
