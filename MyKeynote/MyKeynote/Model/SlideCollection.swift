@@ -22,4 +22,16 @@ struct SlideCollection {
         return slideArray.count
     }
     
+    mutating func moveSlide(from sourceIndex: Int, to destinationIndex: Int) {
+        guard sourceIndex != destinationIndex,
+              sourceIndex >= 0 && sourceIndex < slideArray.count,
+              destinationIndex >= 0 && destinationIndex < slideArray.count else {
+            return
+        }
+        
+        let movedSlide = slideArray[sourceIndex]
+        slideArray.remove(at: sourceIndex)
+        slideArray.insert(movedSlide, at: destinationIndex)
+    }
+    
 }
