@@ -9,7 +9,7 @@ import Foundation
 
 class BaseSlide : SlideProtocol {
    
-    private let id: String
+    let id: String
     var backgroundColor: SlideRGBColor
     
     //Order
