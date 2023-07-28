@@ -30,6 +30,7 @@
 		5F4DC8962A68BAA600DC3CF6 /* ComponentFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F4DC8952A68BAA600DC3CF6 /* ComponentFactory.swift */; };
 		5F4DC89F2A68D2B300DC3CF6 /* SlideDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F4DC89E2A68D2B300DC3CF6 /* SlideDataSource.swift */; };
 		5F4DC8A12A68D75500DC3CF6 /* PresentationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F4DC8A02A68D75500DC3CF6 /* PresentationView.swift */; };
+		5F54CBFA2A71F232006CDC69 /* SlideListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F54CBF92A71F232006CDC69 /* SlideListTableViewCell.swift */; };
 		5F593B8B2A69780F0069C24F /* UIColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F593B8A2A69780F0069C24F /* UIColor.swift */; };
 		5F696AD02A68A3F800CB7C56 /* CustomStepperButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F696ACF2A68A3F800CB7C56 /* CustomStepperButton.swift */; };
 		5FBA89B92A64FFC300C07196 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FBA89B82A64FFC300C07196 /* AppDelegate.swift */; };
@@ -91,6 +92,7 @@
 		5F4DC8952A68BAA600DC3CF6 /* ComponentFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComponentFactory.swift; sourceTree = "<group>"; };
 		5F4DC89E2A68D2B300DC3CF6 /* SlideDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SlideDataSource.swift; sourceTree = "<group>"; };
 		5F4DC8A02A68D75500DC3CF6 /* PresentationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PresentationView.swift; sourceTree = "<group>"; };
+		5F54CBF92A71F232006CDC69 /* SlideListTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SlideListTableViewCell.swift; sourceTree = "<group>"; };
 		5F593B8A2A69780F0069C24F /* UIColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIColor.swift; sourceTree = "<group>"; };
 		5F696ACF2A68A3F800CB7C56 /* CustomStepperButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomStepperButton.swift; sourceTree = "<group>"; };
 		5FBA89B52A64FFC300C07196 /* MyKeynote.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MyKeynote.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -145,6 +147,7 @@
 			children = (
 				5F35E2022A67BA5D001ECDB8 /* InspectorView.swift */,
 				5F35E2082A67C80D001ECDB8 /* KeynoteView.swift */,
+				5F35E2042A67BA86001ECDB8 /* SlideListView.swift */,
 				5F4DC8A02A68D75500DC3CF6 /* PresentationView.swift */,
 			);
 			path = View;
@@ -171,7 +174,6 @@
 		5F4DC8972A68C3C600DC3CF6 /* Slide */ = {
 			isa = PBXGroup;
 			children = (
-				5F35E2042A67BA86001ECDB8 /* SlideListView.swift */,
 				5F3A60DB2A6688A30012212B /* BaseSlide.swift */,
 				5FC22CBF2A6E168B00FAF78F /* SlideProtocol.swift */,
 			);
@@ -197,6 +199,14 @@
 			path = Manager;
 			sourceTree = "<group>";
 		};
+		5F54CBF82A71F221006CDC69 /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				5F54CBF92A71F232006CDC69 /* SlideListTableViewCell.swift */,
+			);
+			path = Cell;
+			sourceTree = "<group>";
+		};
 		5F593B892A6977F80069C24F /* Extension */ = {
 			isa = PBXGroup;
 			children = (
@@ -209,6 +219,7 @@
 		5F696ACE2A68A37E00CB7C56 /* Component */ = {
 			isa = PBXGroup;
 			children = (
+				5F54CBF82A71F221006CDC69 /* Cell */,
 				5F696ACF2A68A3F800CB7C56 /* CustomStepperButton.swift */,
 				5F4DC8922A68B9D000DC3CF6 /* RectangleComponentView.swift */,
 				5F1F1F122A6CEE0C007481DE /* BaseComponentView.swift */,
@@ -453,6 +464,7 @@
 				5F35E2092A67C80D001ECDB8 /* KeynoteView.swift in Sources */,
 				5F35E2052A67BA86001ECDB8 /* SlideListView.swift in Sources */,
 				5F1F1F0F2A6CE5C5007481DE /* RectangleElement.swift in Sources */,
+				5F54CBFA2A71F232006CDC69 /* SlideListTableViewCell.swift in Sources */,
 				5F3A60D82A6688450012212B /* SlideRGBColor.swift in Sources */,
 				5FBA89EC2A6529BE00C07196 /* SlideFactory.swift in Sources */,
 				5FBA89BD2A64FFC300C07196 /* KeynoteViewController.swift in Sources */,
