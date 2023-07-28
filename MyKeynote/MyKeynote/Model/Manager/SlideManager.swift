@@ -51,6 +51,14 @@ struct SlideManager : SlideManaging{
         slide.addElement(newComponent)
     }
     
+    mutating func addRandomElement() {
+        let newComponent = componentFactory.createRandomComponent(type: BaseElement.self)
+        guard let slide = selectedSlide else {
+            return
+        }
+        slide.addElement(newComponent)
+    }
+    
     mutating func updateElementAlpha(alpha : AlphaLevel){
         selectedElement?.alpha = alpha
     }
@@ -64,6 +72,10 @@ struct SlideManager : SlideManaging{
             self.selectedElement = element
         }
         
+    }
+    
+    mutating func moveSlide(from sourceIndex: Int, to destinationIndex: Int) {
+        slideCollection.moveSlide(from: sourceIndex, to: destinationIndex)
     }
     
     
