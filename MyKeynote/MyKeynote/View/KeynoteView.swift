@@ -9,7 +9,7 @@ import Foundation
 import UIKit
 class KeynoteView : UIView{
     
-    private var slideListContainerView : UIView?
+    private var slideListContainerView : SlideListView?
     private var presentationView : PresentationView?
     private var inspectorView : InspectorView?
     var slideDataSource : SlideDataSource?
@@ -25,7 +25,7 @@ class KeynoteView : UIView{
     }
     
     func allAddSubViews(){
-        slideListContainerView =  UIView()
+        slideListContainerView =  SlideListView()
         presentationView = PresentationView()
         inspectorView =  InspectorView()
         
@@ -67,7 +67,28 @@ class KeynoteView : UIView{
         for component in slide.elements.elementArray {
             presentationView?.updateComponent(component)
         }
+       
     }
+    
+    func resetSlide() {
+        for subview in presentationView?.subviews ?? [] {
+            subview.removeFromSuperview()
+        }
+        presentationView?.resetPresentation()
+        
+    }
+    
+    func addComponentsForSlide(_ slide: SlideProtocol) {
+        for component in slide.elements.elementArray {
+            presentationView?.updateComponent(component)
+        }
+    }
+
+    func addComponent(_ component: SlideElementProtocol) {
+        presentationView?.updateComponent(component)
+    }
+    
+    
 
     
     func layoutSlideListView(){
@@ -129,6 +150,28 @@ extension KeynoteView : PresentationViewDelegate{
        
         }
         
+    }
+}
+
+extension KeynoteView{
+    func setSlideTableViewDataSource<T : UITableViewDataSource>(dataSource : T){
+        slideListContainerView?.setTableViewDataSource(dataSource: dataSource)
+    }
+    
+    func setSlideTableViewDelegate<T : UITableViewDelegate>(delegate : T){
+        slideListContainerView?.setTableViewDelegate(delegate: delegate)
+    }
+    
+    func setSlideListDelegate<T : SlideListViewDelegate>(delegate : T){
+        slideListContainerView?.setSlideListDelegate(delegator: delegate)
+    }
+    
+    func setSlideTableViewDragDelegate<T : UITableViewDragDelegate>(delegate : T){
+        slideListContainerView?.setTableViewDragDelegate(delegator: delegate)
+    }
+    
+    func setSlideTableViewDropDelegate<T : UITableViewDropDelegate>(delegate : T){
+        slideListContainerView?.setTableViewDropDelegate(delegator: delegate)
     }
 }
 
