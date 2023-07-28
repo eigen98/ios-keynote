@@ -81,6 +81,10 @@ class PresentationView : UIView{
            componentViews.removeValue(forKey: component.id)
     }
     
+    func resetPresentation(){
+        componentViews.removeAll()
+    }
+    
     
     
 }
